@@ -3,9 +3,6 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-date_object = datetime.now()
-current_date = date_object.strftime("%A, %B %d, %Y")
-
 
 # URL of the Sensex page
 url = "https://g.co/finance/SENSEX:INDEXBOM"
@@ -29,6 +26,6 @@ current_Sensex_value=div_element.text
 current_percent=soup.find('div', class_='JwB6zf').text
 current_percent_value=float(current_percent.split(sep='%')[0])
 
-print(current_percent_value)
+print(current_Sensex_value)
 
 

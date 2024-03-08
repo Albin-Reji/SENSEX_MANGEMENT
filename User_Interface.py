@@ -30,7 +30,7 @@ mycursor.execute(sql, val)
 mydb.commit()
 
 # Close connection
-mydb.close()
+# mydb.close()
 
 
 def register(en1, en3, en4, en6, en7, error_label):

@@ -13,8 +13,8 @@ USERNAME='Guest'
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="albin@democracy@1234",
-    database="sensex_db"
+    password="your password",
+    database="sensex_db(database name)"
 )
 
 mycursor = mydb.cursor()

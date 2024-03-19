@@ -121,7 +121,7 @@ def register_form():
 
 
 
-def submit(user_name_entry, password_entry, app):
+def submit(user_name_entry, password_entry,app, error_label):
     UserName = user_name_entry.get()
     PassWord = password_entry.get()
 
@@ -134,9 +134,10 @@ def submit(user_name_entry, password_entry, app):
         welcome_message = f'Welcome {result[0]} !'
         USERNAME=result[0]
         username_label.configure(text=f"Welcome {USERNAME}", fg="green")
+
     else:
         # Username does not exist or credentials are invalid
-        welcome_label.configure(text="Invalid Username or Password", fg="red")
+        error_label.configure(text="Invalid Username or Password", fg="red")
 
 
 def sign_in_page():
@@ -163,9 +164,12 @@ def sign_in_page():
                                             width=200,
                                             placeholder_text_color="white")
     password_entry.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
+    error_label = customtkinter.CTkLabel(master=frame, text="", text_color="red")
+    error_label.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
 
     submit_button = customtkinter.CTkButton(master=frame, text="Submit",
-                                            command=lambda: submit(user_name_entry, password_entry, app))
+                                            command=lambda: submit(user_name_entry, password_entry, app, error_label))
+
     submit_button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
 
     global welcome_label
